@@ -1,0 +1,485 @@
+$pc: 1100px;
+$tab: 768px; 
+$sp:576px;
+
+
+@mixin pc {
+  @media (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp{
+  @media (max-width:($sp)){
+    @content;
+  }
+}
+
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.5rem;
+  color: #333333;
+  font-family: '游ゴシック',YuGothic,'ヒラギノ角ゴ ProN W3','Hiragino Kaku Gothic ProN','メイリオ',Meiryo,sans-serif;
+  letter-spacing:0.12rem;
+}
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+.contents{
+  line-height: 1.9;
+}
+
+
+
+
+
+/*-----------------------------------------------
+定義
+-------------------------------------------------*/
+
+@mixin width{
+  width:100%;
+  max-width:1032px;
+  margin: 0 auto;
+}
+
+.ttl2{
+  font-family: 'Unna', serif;
+  font-size: 4rem;
+  position: relative;
+  
+  &::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 60px;
+  height: 3px;
+  background-color: black;
+  }
+}
+@mixin flex{
+  display: flex;
+  justify-content: space-between;
+}
+@mixin form{
+  display: block;
+  width:100%;
+  padding:10px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: 游ゴシック, YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;;
+}
+
+@mixin btn{
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+
+/*-----------------------------------------------
+header
+-------------------------------------------------*/
+.header{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+  padding: 40px 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  @include tab{
+    padding:25px 0;
+  }
+  .pc-nav{
+    @include width;
+    @include tab{
+      display: none;
+    }
+    
+    ul{
+      text-align: right;
+
+      li{
+        display: inline-block;
+        padding-right: 20px;
+        
+        &:last-of-type{
+          padding-right: 0;;
+        }
+        a{
+          color:#333333;
+          padding-bottom: 10px;
+          &:hover{
+            border-bottom: 1px solid #333333;
+          }
+        }
+      }
+    }
+  }
+}
+.sp-nav{
+  display: none;
+  margin-top:20px;
+  .sp-nav__menu{
+
+    li{
+      padding:10px 20px 10px;
+      &:last-of-type{
+        padding-bottom:0;
+      }
+      a{
+        color: #333333;
+        }
+    }
+  }
+}
+
+#sp-nav__btn{
+  display: none;
+  @include tab{
+    display: block;
+    position: absolute;
+    right: 10px;
+    top:0;
+  }
+  .menu-trigger{
+    @include btn;
+    position: relative;
+    width: 25px;
+    height: 50px;
+    
+    span {
+      @include btn;
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #333;
+      border-radius: 4px;
+      
+      &:nth-of-type(1) {
+        top: 18px;
+      }
+      &:nth-of-type(2) {
+        top: 25px;
+      }
+      &:nth-of-type(3) {
+        top: 33px;
+      }
+    }
+  }
+}
+
+
+
+
+/*-----------------------------------------------
+コンテンツ
+-------------------------------------------------*/
+.contents{
+  padding-top:95px;
+  @include tab{
+    padding-top:50px;
+  }
+}
+.main{
+  @include width;
+  
+  .main-wrapper{
+    position: relative;
+    height:550px;
+    @include pc{
+    padding-right:20px;
+    padding-left:20px;
+    }
+    @include sp{
+      height:240px;
+    }
+    .main__img{
+      position: absolute;
+      right:0;
+      z-index: 0;
+      img{
+        @include sp{
+          width: 320px;
+        }
+      }
+
+    }
+    .main__ttl{
+      font-family: 'Unna', serif;
+      border-bottom:5px solid #333333;
+      position: absolute;
+      left:0;
+      bottom: 70px;
+      z-index: 1;
+      font-size:10rem;
+      @include pc{
+        left: 20px;
+      }
+      @include tab{
+        font-size: 6.4rem;
+      }
+      @include sp{
+        font-size: 3.6rem;
+        bottom:30px;
+      }
+
+    }
+  }
+}
+#about{
+  @include width;
+  padding-top:120px;
+  @include tab{
+    padding-top: 80px;
+    }
+  .about-wrapper{
+    @include flex;
+    position: relative;
+    @include pc{
+      padding-right:20px;
+      padding-left:20px;
+      }
+    @include tab{
+      display: block;
+      }
+    .about__ttl--bg{
+      background: url(../img/bg_font.png);
+      background-repeat: no-repeat;
+      background-size: 450px;
+      position: absolute;
+      width: 450px;
+      height: 158px;
+      background-position: top left;
+      left: -15px;
+      top: 50px;
+      z-index: -1;
+      @include tab{
+        background-size: 300px;
+        width: 300px;
+        height: 100px;
+      }
+    }
+    .about__ttl{
+      width: 50%;
+      @include tab{
+        width:100%;
+        }
+    h2{
+      @extend .ttl2;
+      @include tab{
+        font-size: 3.8rem;
+      }
+      @include sp{
+        font-size: 2.6rem;
+      }
+      
+    }
+    
+    } 
+    .about__text{
+      width: 50%;
+      @include tab{
+        width:100%;
+        margin-top: 20px;
+        }
+      h3{
+        margin: 20px 0 10px 0;
+        display: inline-block;
+        font-weight: normal;
+        position: relative;
+        padding: 0 20px;
+        &::before{
+          content:"";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width:10px;
+          height:15px;
+          border-top:solid 1px #333333;
+          border-left:solid 1px #333333;
+        }
+        &::after{
+          content:"";
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width:10px;
+          height:15px;
+          border-bottom:solid 1px #333333;
+          border-right:solid 1px #333333;
+        }
+      }
+      
+    }
+  }
+}
+#work{
+  padding-top: 120px;
+  @include tab{
+    padding-top: 80px;
+    }
+  .work--bgcolor{
+    background-color: #bcc8d6;
+
+    .work-wrapper{
+      @include width;
+      padding-top: 60px;
+      padding-bottom:60px;
+      @include pc{
+        padding-right:20px;
+        padding-left:20px;
+        }
+      @include sp{
+        padding-top: 40px;
+        padding-bottom:40px;
+        }
+
+      .work__ttl{
+        text-align: center;
+        position: relative;
+        display: inline-block;
+
+        h2{
+          @extend .ttl2;
+          margin: 0 auto;
+          @include tab{
+            font-size: 3.8rem;
+          }
+          @include sp{
+            font-size: 2.6rem;
+          }
+        }
+      }
+      .container{
+        display: grid;
+        margin-top: 60px;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 66px;
+        @include tab{
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 20px;
+          margin-top: 40px;
+          }
+        .item{
+          position: relative;
+          &:hover .mask {
+            opacity:1;	/* マスクを表示する */
+          }
+          .mask {
+            width:100%;
+            height:calc(100% - 9px);
+            position:absolute;	/* 絶対位置指定 */
+            top:0;
+            left:0;
+            opacity:0;	/* マスクを表示しない */
+            background-color:	rgba(0, 0, 0, 0.6);	/* マスクは半透明 */
+            transition:all 0.2s ease;
+            .caption {
+              font-size:130%;
+              text-align:center;
+              padding-top:38%;
+              color:#fff;
+            }  
+          }
+          img{
+            width:100%;
+
+          }
+        }
+      }
+    }
+  }
+}
+#contact{
+  @include width;
+  padding-top:120px;
+  @include tab{
+    padding-top: 80px;
+    }
+  .contact-wrapper{
+    @include flex;
+    @include pc{
+      padding-right:20px;
+      padding-left:20px;
+      }
+    @include tab{
+      display: block;
+      }
+
+    .contact__ttl{
+      width:30%;
+      @include tab{
+        width:100%;
+        }
+      h2{
+        @extend .ttl2;
+        @include tab{
+          font-size: 3.8rem;
+        }
+        @include sp{
+          font-size: 2.6rem;
+        }
+      }
+      
+    }
+    .contact__form{
+      width:70%;
+      margin-top:20px;
+      @include tab{
+        width:100%;
+        }
+      input[type="text"]{
+        @include form;
+        height:37px;
+      }
+      #name{
+        margin-bottom:20px;
+      }
+      textarea{
+        @include form;
+        height:100px;
+      }
+      .btn{
+        text-align: right;
+        margin-top: 20px;
+        input[type="submit"]{
+          padding:15px 40px;
+          background-color: #bcc8d6;
+          color: #333;
+          border-style: none;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+/*-----------------------------------------------
+footer
+-------------------------------------------------*/
+footer{
+  background-color:#bcc8d6;
+  margin-top:120px;
+  width: 100%;
+  @include tab{
+    margin-top: 80px;
+    }
+  p{
+    text-align: center;
+    padding:40px 0;
+    font-size: 1.2rem;
+  }
+}
+
+
+
+

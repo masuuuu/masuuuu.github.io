@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>portfolio</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+<body id="top">
+  <div class="wrapper">
+    <header class="header">
+      <nav class="pc-nav">
+        <ul>
+          <li><a href="#top">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#work">WORK</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+      <div id="sp-nav__btn">
+        <div class="menu-trigger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <nav class="sp-nav">
+        <ul class="sp-nav__menu">
+          <li><a href="#top">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#work">WORK</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </nav>
+      
+    </header>
+    <div class="contents">
+    <section class="main">
+      <div class="main-wrapper">
+        <div class="main__img">
+          <img src="img/main_img.jpg" alt="">
+        </div>
+        <div class="main__ttl">
+          <h2>My Portfolio</h2>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="about-wrapper">
+        <div class="about__ttl--bg"></div>
+        <div class="about__ttl">
+          <h2>ABOUT</h2>
+        </div>
+        <div class="about__text">
+          <p>2015年3月に大学を卒業後、医療事務、データ入力の仕事を経験しました。2017年6月から3ヶ月間職業訓練に通いWeb制作の知識を身につけ、ECサイトの運営アシスタントやWebコーダーを経験し現在に至ります。</p>
+          <h3>SKILL</h3>
+          <p>HTML・CSS・Jquery・Photoshop</p>
+          
+        </div>
+      </div>
+    </section>
+    <section id="work">
+      <div class="work--bgcolor">
+        <div class="work-wrapper">
+          <div class="work__ttl">
+            <h2>WORK</h2>
+          </div>
+          <div class="container">
+            
+            <div class="item">
+              <img src="img/banner01.png" alt="">
+              <div class="mask">
+                <div class="caption">バナー練習1</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="img/banner02.png" alt="">
+              <div class="mask">
+                <div class="caption">バナー練習2</div>
+              </div>
+            </div>
+            <div class="item">
+              <img src="img/banner03.jpg" alt="">
+              <div class="mask">
+                <div class="caption">バナー練習3</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="contact-wrapper">
+        <div class="contact__ttl">
+          <h2>CONTACT</h2>
+        </div>
+        <div class="contact__form">
+          <form>
+            <dl>
+              <dt><label for="name">NAME</label></dt>
+              <dd><input type="text" name="name" id="name"></dd>
+              <dt><label for="message">MESSAGE</label></dt>
+              <dd><textarea name="message" id="message"></textarea></dd>
+            </dl>
+            <div class="btn">
+              <input type="submit" value="送信">
+            </div>
+          </form>
+        </div> 
+      </div>
+    </section>
+    </div>
+    <footer>
+      <p>&copy; MASUDA RIKO</p>
+    </footer>
+  </div>
+  <script id="rendered-js">
+    $(function () {
+      $(".menu-trigger").on("click", function(){
+        $(".sp-nav").slideToggle();
+      })
+    });
+    $(function () {
+    $(".sp-nav a").on("click", function(){
+        $(".sp-nav").slideToggle();
+      })
+    });
+
+    $(function(){
+  $('a[href^="#"]').click(function(){
+    var speed = 500;
+    var href= $(this).attr("href");
+    var target = $(href == "#" || href == "" ? 'html' : href);
+    var position = target.offset().top;
+    $("html, body").animate({scrollTop:position}, speed, "swing");
+    return false;
+  });
+});
+    //# sourceURL=pen.js
+        </script>
+</body>
+</html>
